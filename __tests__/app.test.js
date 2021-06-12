@@ -11,7 +11,7 @@ describe('demo routes', () => {
 
   it('creates a beer via POST', async () => {
 
-    const res = request(app)
+    const res = await request(app)
       .post('/api/v1/beers')
       .send({
         name: 'barney',
@@ -24,7 +24,7 @@ describe('demo routes', () => {
       name: 'barney',
       abv: '9%',
       color: 'dark'
-    })
+    });
 
   });
 
