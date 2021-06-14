@@ -28,6 +28,23 @@ describe('demo routes', () => {
 
   });
 
+  it('creates a noodle via POST', async () => {
+
+    const res = await request(app)
+      .post('api/v1/noodle')
+      .send({
+        name: 'spaghetti',
+        region: 'italy',
+        rating: '5 stars'
+      });
+
+    expect(res.body).toEqual({
+      id: '1',
+      name: 'spaghetti',
+      region: 'italy',
+      rating: '5 stars'
+    });
+  });
 
 
 });
