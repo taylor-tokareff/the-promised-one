@@ -37,8 +37,24 @@ describe('demo routes', () => {
 
   });
 
+  test('finds all trees via GET route', async () => {
 
+    const tree1 = await Tree.insert({
+      type: 'maple',
+      age: '69'
+    });
+    const tree2 = await Tree.insert({
+      type: 'pine',
+      age: '420'
+    });
+    const tree3 = await Tree.insert({
+      type: 'cherry',
+      age: '666'
+    });
 
+    const res = await request(app).get('/api/v1/trees');
+    expect(res.body).toEqual([tree1, tree2, tree3]);
+  });
 
 
 });
