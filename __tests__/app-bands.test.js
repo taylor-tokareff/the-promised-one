@@ -15,13 +15,13 @@ describe('demo routes', () => {
       .post('/api/v1/bands')
       .send({
         name: 'misfits',
-        from: 'new jersey',
+        home: 'new jersey',
       });
 
     expect(res.body).toEqual({
       id: '1',
       name: 'misfits',
-      from: 'new jersey',
+      home: 'new jersey',
     });
 
   });
