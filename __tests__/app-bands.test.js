@@ -26,4 +26,20 @@ describe('demo routes', () => {
 
   });
 
+  test('find a band by id via Get route', async () => {
+    const band = await Band.insert({
+      name: 'misfits',
+      home: 'new jersey'
+    });
+    const res = await request(app).get(`/api/v1/bands/${band.id}`);
+
+    expect(res.body).toEqual(band);
+
+  });
+
+
+
+
+
+
 });
