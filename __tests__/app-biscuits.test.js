@@ -68,6 +68,24 @@ describe('demo routes', () => {
 
   });
 
+  test('it updates a biscuit', async () => {
+    const biscuit1 = await Biscuit.insert({
+      flour: 'white',
+      sauce: 'butter'
+    });
+    const biscuit2 = await Biscuit.insert({
+      flour: 'almond',
+      sauce: 'jam'
+    });
+    const res = await request(app).put(`/api/v1/biscuits/${biscuit1.id}`).send(biscuit2);
+    expect(res.body).toEqual({
+      id: '1',
+      flour: 'almond',
+      sauce: 'jam'
+    });
+
+
+  });
 
 
 });
