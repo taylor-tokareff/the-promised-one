@@ -56,6 +56,18 @@ describe('demo routes', () => {
     expect(res.body).toEqual([noodle1, noodle2, noodle3]);
   });
 
+  test('deletes noodle1', async () => {
+    const noodle1 = await Noodle.insert({
+      name: 'spaghetti',
+      region: 'italy'
+    });
+
+    const res = await request(app).delete(`/api/v1/noodles/${noodle1.id}`);
+
+    expect(res.body).toEqual(noodle1);
+
+  });
+
 
 
 
