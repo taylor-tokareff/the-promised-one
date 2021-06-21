@@ -23,6 +23,16 @@ describe('demo routes', () => {
       name: 'spaghetti',
       region: 'italy',
     });
+  });
+
+  test('find a noodle by id via Get route', async () => {
+    const noodle = await Noodle.insert({
+      name: 'spaghetti',
+      region: 'italy'
+    });
+    const res = await request(app).get(`/api/v1/noodles/${noodle.id}`);
+
+    expect(res.body).toEqual(noodle);
 
   });
 
