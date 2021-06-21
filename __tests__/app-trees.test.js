@@ -68,5 +68,24 @@ describe('demo routes', () => {
 
   });
 
+  test('it updates a tree', async () => {
+    const tree1 = await Tree.insert({
+      type: 'maple',
+      age: '69'
+    });
+    const tree2 = await Tree.insert({
+      type: 'pine',
+      age: '420'
+    });
+    const res = await request(app).put(`/api/v1/trees/${tree1.id}`).send(tree2);
+    expect(res.body).toEqual({
+      id: '1',
+      type: 'pine',
+      age: '420'
+    });
+
+
+  });
 
 });
+
