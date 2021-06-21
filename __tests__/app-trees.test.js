@@ -26,6 +26,18 @@ describe('demo routes', () => {
 
   });
 
+  test('find a tree by id via Get route', async () => {
+    const tree = await Tree.insert({
+      type: 'maple',
+      age: '69'
+    });
+    const res = await request(app).get(`/api/v1/trees/${tree.id}`);
+
+    expect(res.body).toEqual(tree);
+
+  });
+
+
 
 
 
