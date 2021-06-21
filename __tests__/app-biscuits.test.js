@@ -25,4 +25,17 @@ describe('demo routes', () => {
     });
 
   });
+
+  test('find a biscuit by id via Get route', async () => {
+    const biscuit = await Biscuit.insert({
+      flour: 'white',
+      sauce: 'butter'
+    });
+    const res = await request(app).get(`/api/v1/biscuits/${biscuit.id}`);
+
+    expect(res.body).toEqual(biscuit);
+
+  });
+
+
 });
