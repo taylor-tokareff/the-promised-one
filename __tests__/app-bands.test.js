@@ -68,6 +68,23 @@ describe('demo routes', () => {
 
   });
 
+  test('it updates a band', async () => {
+    const band1 = await Band.insert({
+      name: 'misfits',
+      home: 'new jersey'
+    });
+    const band2 = await Band.insert({
+      name: 'minor threat',
+      home: 'dc'
+    });
+    const res = await request(app).put(`/api/v1/bands/${band1.id}`).send(band2);
+    expect(res.body).toEqual({
+      id: '1',
+      name: 'minor threat',
+      home: 'dc'
+    });
+
+  });
 
 
 
