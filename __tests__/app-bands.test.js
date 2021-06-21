@@ -37,6 +37,24 @@ describe('demo routes', () => {
 
   });
 
+  test('finds all bands via GET route', async () => {
+
+    const band1 = await Band.insert({
+      name: 'misfits',
+      home: 'new jersey'
+    });
+    const band2 = await Band.insert({
+      name: 'minor threat',
+      home: 'dc'
+    });
+    const band3 = await Band.insert({
+      name: 'nofx',
+      home: 'la'
+    });
+
+    const res = await request(app).get('/api/v1/bands');
+    expect(res.body).toEqual([band1, band2, band3]);
+  });
 
 
 
