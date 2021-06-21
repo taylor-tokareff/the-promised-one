@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS beers, trees, biscuits, noodles;
+DROP TABLE IF EXISTS beers, trees, biscuits, noodles, bands;
 
 
 CREATE TABLE beers (
@@ -24,4 +24,10 @@ CREATE TABLE noodles (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name TEXT NOT NULL,
   region TEXT NOT NULL
+);
+
+CREATE TABLE bands (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name TEXT NOT NULL,
+  from TEXT NOT NULL
 );
