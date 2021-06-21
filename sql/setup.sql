@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS beers;
+DROP TABLE IF EXISTS beers, trees;
 
 
 CREATE TABLE beers (
@@ -6,4 +6,10 @@ CREATE TABLE beers (
   name TEXT NOT NULL,
   abv TEXT NOT NULL,
   color TEXT
-)
+);
+
+CREATE TABLE trees (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  type TEXT NOT NULL,
+  age TEXT NOT NULL
+);
