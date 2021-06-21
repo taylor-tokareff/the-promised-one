@@ -68,9 +68,24 @@ describe('demo routes', () => {
 
   });
 
+  test('it updates a noodle', async () => {
+    const noodle1 = await Noodle.insert({
+      name: 'spaghetti',
+      region: 'italy'
+    });
+    const noodle2 = await Noodle.insert({
+      name: 'pad thai',
+      region: 'thailand'
+    });
+    const res = await request(app).put(`/api/v1/noodles/${noodle1.id}`).send(noodle2);
+    expect(res.body).toEqual({
+      id: '1',
+      name: 'pad thai',
+      region: 'thailand'
+    });
 
 
-
+  });
 
 
 
