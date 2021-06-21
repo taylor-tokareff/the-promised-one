@@ -12,7 +12,7 @@ describe('demo routes', () => {
   test('creates a noodle via POST', async () => {
 
     const res = await request(app)
-      .post('api/v1/noodle')
+      .post('/api/v1/noodles')
       .send({
         name: 'spaghetti',
         region: 'italy',
@@ -23,6 +23,7 @@ describe('demo routes', () => {
       name: 'spaghetti',
       region: 'italy',
     });
+
   });
 
 
