@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS beers, trees;
+DROP TABLE IF EXISTS beers, trees, biscuits;
 
 
 CREATE TABLE beers (
