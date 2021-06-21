@@ -37,5 +37,26 @@ describe('demo routes', () => {
 
   });
 
+  test('finds all biscuits via GET route', async () => {
+
+    const biscuit1 = await Biscuit.insert({
+      flour: 'white',
+      sauce: 'butter'
+    });
+    const biscuit2 = await Biscuit.insert({
+      flour: 'almond',
+      sauce: 'jam'
+    });
+    const biscuit3 = await Biscuit.insert({
+      flour: 'unbleached',
+      sauce: 'gravy'
+    });
+
+    const res = await request(app).get('/api/v1/biscuits');
+    expect(res.body).toEqual([biscuit1, biscuit2, biscuit3]);
+  });
+
+
+
 
 });
