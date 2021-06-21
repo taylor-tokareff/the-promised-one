@@ -56,6 +56,17 @@ describe('demo routes', () => {
     expect(res.body).toEqual([biscuit1, biscuit2, biscuit3]);
   });
 
+  test('deletes biscuit1', async () => {
+    const biscuit1 = await Biscuit.insert({
+      flour: 'white',
+      sauce: 'butter',
+    });
+
+    const res = await request(app).delete(`/api/v1/biscuits/${biscuit1.id}`);
+
+    expect(res.body).toEqual(biscuit1);
+
+  });
 
 
 
