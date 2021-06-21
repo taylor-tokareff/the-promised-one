@@ -56,5 +56,17 @@ describe('demo routes', () => {
     expect(res.body).toEqual([tree1, tree2, tree3]);
   });
 
+  test('deletes tree1', async () => {
+    const tree1 = await Tree.insert({
+      type: 'maple',
+      age: '69',
+    });
+
+    const res = await request(app).delete(`/api/v1/trees/${tree1.id}`);
+
+    expect(res.body).toEqual(tree1);
+
+  });
+
 
 });
