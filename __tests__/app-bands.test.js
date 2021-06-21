@@ -56,6 +56,17 @@ describe('demo routes', () => {
     expect(res.body).toEqual([band1, band2, band3]);
   });
 
+  test('deletes band1', async () => {
+    const band1 = await Band.insert({
+      name: 'misfits',
+      home: 'new jersey'
+    });
+
+    const res = await request(app).delete(`/api/v1/bands/${band1.id}`);
+
+    expect(res.body).toEqual(band1);
+
+  });
 
 
 
